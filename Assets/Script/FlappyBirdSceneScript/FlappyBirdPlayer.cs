@@ -5,6 +5,8 @@ using UnityEngine;
 public class FlappyBirdPlayer : MonoBehaviour
 {
     Rigidbody2D _rigidbody;
+    Animator animator;
+    FlaapyUI flappyUI;
 
     [SerializeField] int Power = 4;
 
@@ -13,7 +15,9 @@ public class FlappyBirdPlayer : MonoBehaviour
     private float rotationSpeed = 5f;
     private void Start()
     {
+        flappyUI = GetComponent<FlaapyUI>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -32,5 +36,9 @@ public class FlappyBirdPlayer : MonoBehaviour
         
         Quaternion targetRotation = Quaternion.Euler(0,0,targetAngle);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+    }
+    public void DieAnimation()
+    {
+        animator.SetBool("IsDie", true);
     }
 }

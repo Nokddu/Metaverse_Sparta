@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 5f;
     Rigidbody2D _rigid;
 
-
     Animator animator;
     void Start()
     {
@@ -52,4 +51,6 @@ public class Player : MonoBehaviour
             animator.SetBool("Down", true);
         }
     }
+
+   
 }

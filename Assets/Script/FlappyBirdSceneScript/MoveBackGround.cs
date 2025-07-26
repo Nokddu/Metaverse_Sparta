@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MoveBackGround : MonoBehaviour
 {
-    [SerializeField] private float Speed = -2;
+    [SerializeField] private float Speed = 2f;
     void Update()
     {
-        transform.position += new Vector3(Speed, 0, 0) * Time.deltaTime;
+        transform.position += Vector3.left * Speed * Time.deltaTime;
         if(transform.position.x <= -7.1f)
         {
             transform.position = Vector3.zero;
