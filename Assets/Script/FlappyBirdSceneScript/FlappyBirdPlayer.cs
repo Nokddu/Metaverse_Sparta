@@ -8,7 +8,7 @@ public class FlappyBirdPlayer : MonoBehaviour
     Animator animator;
     FlaapyUI flappyUI;
 
-    [SerializeField] int Power = 4;
+    [SerializeField] int Power = 3;
 
     private float maxAngle = 25f;
     private float minAngle = -45f;

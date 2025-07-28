@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ManualUI : MonoBehaviour
 {
@@ -16,4 +18,6 @@ public class ManualUI : MonoBehaviour
         if (collision.CompareTag("Player"))
             transform.GetChild(0).gameObject.SetActive(false);
     }
+
+    
 }

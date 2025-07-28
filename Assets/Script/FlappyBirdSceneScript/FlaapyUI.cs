@@ -43,11 +43,12 @@ public class FlaapyUI : MonoBehaviour
     public void SetUI()
     {
         CurrentScore.text = FlappyBirdManager.Instance.FlappyScore.ToString();
-        if(!PlayerPrefs.HasKey("FlappyBird"))
+        if(!PlayerPrefs.HasKey("FlappyBird") || PlayerPrefs.GetInt("FlappyBird") < FlappyBirdManager.Instance.FlappyScore)
         {
             BestScore.text = FlappyBirdManager.Instance.FlappyScore.ToString();
         }
-        BestScore.text = PlayerPrefs.GetInt("FlappyBird").ToString();
+        else
+            BestScore.text = PlayerPrefs.GetInt("FlappyBird").ToString();
 
         GameScoreUI.SetActive(true);
     }

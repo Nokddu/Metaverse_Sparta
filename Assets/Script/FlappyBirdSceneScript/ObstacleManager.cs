@@ -32,7 +32,6 @@ public class ObstacleManager : MonoBehaviour
         else
         {
             transform.position = new Vector2(4, Random.Range(MinY, MaxY));
-            Debug.Log("BackGound");
         }
     }
 

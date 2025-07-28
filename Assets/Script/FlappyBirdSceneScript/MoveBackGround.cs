@@ -11,8 +11,6 @@ public class MoveBackGround : MonoBehaviour
         if(transform.position.x <= -7.1f)
         {
             transform.position = Vector3.zero;
-            Debug.Log("a");
-
         }
     }
 }
