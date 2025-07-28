@@ -16,6 +16,8 @@ public class FlappyBirdManager : MonoBehaviour
             Instance = this;
         else
             Destroy(Instance);
+
+        Time.timeScale = 0;
     }
 
     public void AddScore()
@@ -26,10 +28,26 @@ public class FlappyBirdManager : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0;
+        if(!PlayerPrefs.HasKey("FlappyBird"))
+        {
+            PlayerPrefs.SetInt("FlappyBird", flappyscore);
+        }
+        else
+        {
+            if(PlayerPrefs.GetInt("FlappyBird") >= flappyscore)
+            {
+                return;
+            }
+            else
+            {
+                PlayerPrefs.SetInt("FlappyBird", flappyscore);
+            }
+        }
     }
 
     public void GameStart()
     {
         Time.timeScale = 1;
+        flappyscore = 0;
     }
 }
