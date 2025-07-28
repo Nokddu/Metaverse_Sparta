@@ -5,9 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float VehicleSpeed = 1.5f;
     Rigidbody2D _rigid;
-
+    [SerializeField] private Vehicle vehicle;
     Animator animator;
+
+    private bool spacePressed = false;
+
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
@@ -23,6 +27,29 @@ public class Player : MonoBehaviour
         MoveAnimation(move);
         _rigid.velocity = move * speed;
 
+        if(spacePressed)
+        {
+            spacePressed = false;
+
+            vehicle.IsBoarding();
+
+            if(vehicle.IsOnBoard())
+            {
+                speed *= VehicleSpeed;
+            }
+            else
+            {
+                speed /= VehicleSpeed;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            spacePressed = true;
+        }
     }
 
     private void MoveAnimation(Vector2 move)
@@ -51,6 +78,4 @@ public class Player : MonoBehaviour
             animator.SetBool("Down", true);
         }
     }
-
-   
 }
