@@ -15,7 +15,7 @@ public class FlappyBirdManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
         else
-            Destroy(Instance);
+            Destroy(gameObject);
 
         Time.timeScale = 0;
     }

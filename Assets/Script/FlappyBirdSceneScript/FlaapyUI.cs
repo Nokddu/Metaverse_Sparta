@@ -67,6 +67,7 @@ public class FlaapyUI : MonoBehaviour
     private void Exit()
     {
         Time.timeScale = 1;
+        SoundManager.instance.ChangeBgm(0);
         SceneManager.LoadScene("MainScene");
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameInfoZone : MonoBehaviour
 {
     [Header("Á¸ ¼³Á¤")]
+    [SerializeField]
+    private int bgmSelect;
 
     [SerializeField]
     [TextArea(10,15)]
@@ -13,11 +15,12 @@ public class GameInfoZone : MonoBehaviour
     [SerializeField]
     private string Scene = "SceneName";
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            UIManager.Instance.DescriptionText(Description, Scene);
+            UIManager.Instance.DescriptionText(Description, Scene, bgmSelect);
         }
     }
 

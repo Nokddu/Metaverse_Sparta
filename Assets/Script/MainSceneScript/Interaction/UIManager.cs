@@ -16,7 +16,9 @@ public class UIManager : MonoBehaviour
     public Button button;
 
     private string LoadSceneName;
-    
+    private int bgmSelect;
+
+
     public bool isLoading { get; private set; }
 
     private void Awake()
@@ -31,7 +33,7 @@ public class UIManager : MonoBehaviour
         Manual.SetActive(false);
     }
 
-    public void DescriptionText(string Text,  string SceneName)
+    public void DescriptionText(string Text,  string SceneName,int num)
     {
         Desciption.text = Text;
         button.onClick.RemoveAllListeners();
@@ -39,6 +41,7 @@ public class UIManager : MonoBehaviour
         isLoading = false;
         LoadSceneName = SceneName;
         Manual.SetActive(true);
+        bgmSelect = num;
     }
 
     public void HideUI()
@@ -49,7 +52,11 @@ public class UIManager : MonoBehaviour
     public void StartBtn()
     {
         isLoading = true;
-        if (LoadSceneName != null) SceneManager.LoadScene(LoadSceneName);
+        if (LoadSceneName != null)
+        {
+            SoundManager.instance.ChangeBgm(bgmSelect);
+            SceneManager.LoadScene(LoadSceneName);
+        }
         else Debug.Log("LoadSceneName이 Null 입니다");
     }
 }

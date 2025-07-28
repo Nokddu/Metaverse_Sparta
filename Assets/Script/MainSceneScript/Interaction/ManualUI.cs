@@ -12,7 +12,6 @@ public class ManualUI : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
     }
 
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
