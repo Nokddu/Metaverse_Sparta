@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveBackGround : MonoBehaviour
 {
     [SerializeField] private float Speed = 2f;
-    void Update()
+    void FixedUpdate()
     {
         transform.position += Vector3.left * Speed * Time.deltaTime;
         if(transform.position.x <= -7.1f)

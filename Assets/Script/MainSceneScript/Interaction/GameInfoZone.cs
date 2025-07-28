@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class FlappyBirdZone : MonoBehaviour
+public class GameInfoZone : MonoBehaviour
 {
-    string Description = "간단한 플레피 버드 게임입니다\n\n조각키 : Space\n\n게임설명 :\n\n최대한 오래 살아남으세요!!\n\n장애물에 부딪히면 게임이 종료됩니다!!";
-    string Scene = "FlappyBird"; 
+    [Header("존 설정")]
+
+    [SerializeField]
+    [TextArea(10,15)]
+    private string Description = "게임 설명 입력";
+
+    [SerializeField]
+    private string Scene = "SceneName";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
